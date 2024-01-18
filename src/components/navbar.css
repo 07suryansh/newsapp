@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* background-color: chocolate; */
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    border: 1px solid #272829;
+    padding: 10px;
+    border-radius: 4px;
+}
+.navbar>li{
+    list-style: none;
+    /* background-color: blueviolet; */
+    cursor: pointer;
+    color: #272829;
+}
