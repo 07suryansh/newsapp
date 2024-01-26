@@ -8,6 +8,7 @@ export default function Card(props) {
     <div className="newsTitle">{props.title}</div>
     <div className="newsAuthor">{props.author}</div>
     <div className="newsDescription">{props.description}</div>
+    <a href={props.url}>Read full article</a>
     </div>
   )
 }

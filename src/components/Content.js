@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./card.css";
+import "./content.css";
 import Card from "./Card";
 
 export default function Content() {
@@ -41,6 +41,7 @@ export default function Content() {
               title={e.title}
               description={e.description}
               imgurl={e.urlToImage}
+              url={e.url}
             />
           );
         })}
