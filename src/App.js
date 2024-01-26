@@ -1,12 +1,16 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import Title from './components/Title';
+import "./App.css";
+import Content from "./components/Content";
+import Navbar from "./components/Navbar";
+import Title from "./components/Title";
 
 function App() {
   return (
     <div className="App">
-      <Title/>
-      <Navbar/>
+      <div className="headers">
+        <Title />
+        <Navbar />
+      </div>
+      <Content />
     </div>
   );
 }
