@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./content.css";
 import Card from "./Card";
+// import {dotenv} from 'dotenv';
+// dotenv.config();
+
+
 
 export default function Content() {
+  
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  // const apikey=process.env.API_KEY;
+  const apikey='b4a4cbca69f342aca8cced4d07ba4ee9';
   useEffect(() => {
     // const fetchData = async () => {
     //   try {
@@ -25,7 +31,7 @@ export default function Content() {
     // fetchData();
     axios
       .get(
-        "https://newsapi.org/v2/everything?q=keyword&apiKey=b4a4cbca69f342aca8cced4d07ba4ee9"
+        `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apikey}`
       )
       .then((res) => {
         setData(res.data.articles);
