@@ -9,20 +9,33 @@ export default function Content() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://newsapi.org/v2/everything?q=keyword&apiKey=b4a4cbca69f342aca8cced4d07ba4ee9"
-        );
-        setData(response.data.articles);
-        console.log(response.data.articles);
-      } catch (error) {
-        setError(error);
-      } finally {
+    // const fetchData = async () => {
+    //   try {
+    //     const response = await axios.get(
+    //       "https://newsapi.org/v2/everything?q=keyword&apiKey=b4a4cbca69f342aca8cced4d07ba4ee9"
+    //     );
+    //     setData(response.data.articles);
+    //     console.log(response.data.articles);
+    //   } catch (error) {
+    //     setError(error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+    // fetchData();
+    axios
+      .get(
+        "https://newsapi.org/v2/everything?q=keyword&apiKey=b4a4cbca69f342aca8cced4d07ba4ee9"
+      )
+      .then((res) => {
+        setData(res.data.articles);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
         setLoading(false);
-      }
-    };
-    fetchData();
+      });
   }, []);
   if (loading) {
     return <p>Loading...</p>;
@@ -33,18 +46,18 @@ export default function Content() {
   }
 
   return (
-      <div className="content">
-        {data.map((e) => {
-          return (
-            <Card
-              author={e.author}
-              title={e.title}
-              description={e.description}
-              imgurl={e.urlToImage}
-              url={e.url}
-            />
-          );
-        })}
-      </div>
+    <div className="content">
+      {data.map((e) => {
+        return (
+          <Card
+            author={e.author}
+            title={e.title}
+            description={e.description}
+            imgurl={e.urlToImage}
+            url={e.url}
+          />
+        );
+      })}
+    </div>
   );
 }
